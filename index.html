@@ -28,11 +28,21 @@
       height: 100vh;
     }
      a{color:white;}
+       .nav-link {
+    display: inline-block;     /* Crucial: Allows top/bottom margins to work */
+    margin-top: 100px;         /* Pushes them 100px from the top */
+  }
+
+  .home-link {
+    margin-right: 20px;        /* Adds a 20px space between the first and second link */
+  }
   </style>
  
 </head>
 <body>
-    <a href="https://etachali2-prog.github.io/To-home/">Back to Home</a>
-     <a href="https://etachali2-prog.github.io/all/">FORMS</a>
+   <a class="nav-link home-link" href="https://etachali2-prog.github.io/To-home/">Back to Home</a>
+<a class="nav-link" href="https://etachali2-prog.github.io/all/">FORMS</a>
+
+
 </body>
 </html>
