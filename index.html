@@ -1,48 +1,332 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta n
-        ame="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
- <style>
-    body {
-      /* Replace the URL below with your actual image path or link */
-      background-image: url('https://th.bing.com/th/id/R.d87217d7ce2bd7b22f035551b9776d6c?rik=E6dE0qyzfKSe9g&pid=ImgRaw&r=0');
-      
-      /* Prevents the image from repeating like tiles */
-      background-repeat: no-repeat;
-      
-      /* Centers the image perfectly */
-      background-position: center;
-      
-      /* Stretches the image to cover the entire screen smoothly */
-      background-size: cover;
-      
-      /* Keeps the background fixed so it doesn't move when you scroll */
-      background-attachment: fixed;
-      
-      /* Minimal resets to prevent white borders */
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-    }
-     a{color:white;}
-       .nav-link {
-    display: inline-block;     /* Crucial: Allows top/bottom margins to work */
-    margin-top: 100px;         /* Pushes them 100px from the top */
-  }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  .home-link {
-    margin-right: 20px;        /* Adds a 20px space between the first and second link */
-  }
-  </style>
- 
+    <title>MELBA Technical Department</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+
+            background-image:
+                linear-gradient(
+                    rgba(4, 18, 45, 0.65),
+                    rgba(0, 35, 75, 0.75)
+                ),
+                url("https://th.bing.com/th/id/R.d87217d7ce2bd7b22f035551b9776d6c?rik=E6dE0qyzfKSe9g&pid=ImgRaw&r=0");
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        /* Top navigation bar */
+        .navbar {
+            width: 100%;
+            min-height: 85px;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+
+            background: rgba(5, 20, 45, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .logo span {
+            color: #54d6ff;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            padding: 12px 25px;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+
+        .home-link {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .forms-link {
+            background: linear-gradient(135deg, #008cff, #00c6ff);
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(0, 170, 255, 0.3);
+        }
+
+        .nav-link:hover {
+            transform: translateY(-4px);
+            background: white;
+            color: #06366a;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main welcome section */
+        .hero {
+            flex: 1;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .tagline {
+            display: inline-block;
+            padding: 9px 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            color: #83e5ff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 65px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero h1 span {
+            color: #54d6ff;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin-bottom: 35px;
+            color: #e4efff;
+            font-size: clamp(15px, 2vw, 19px);
+            line-height: 1.8;
+        }
+
+        /* Main action cards */
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .card {
+            flex: 1 1 220px;
+            max-width: 280px;
+            padding: 28px 22px;
+            text-decoration: none;
+            color: white;
+
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 18px;
+            backdrop-filter: blur(12px);
+
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.23);
+            border-color: #54d6ff;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .card .icon {
+            display: block;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+            color: #e0eeff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 15px;
+            background: rgba(5, 20, 45, 0.75);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            color: #d5e6fa;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #54d6ff;
+            font-weight: bold;
+        }
+
+        /* Mobile layout */
+        @media (max-width: 600px) {
+            .navbar {
+                justify-content: center;
+                text-align: center;
+                padding: 20px 15px;
+            }
+
+            .logo {
+                width: 100%;
+                font-size: 20px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                padding: 10px 20px;
+            }
+
+            .hero {
+                padding: 45px 18px;
+            }
+
+            .cards {
+                align-items: stretch;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
-<body>
-   <a href="https://etachali2-prog.github.io/To-home/">HOME</a>
-<a class="nav-link" href="https://etachali2-prog.github.io/all/">FORMS</a>
 
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            MELBA <span>TECHNICAL</span>
+        </div>
+
+        <nav class="nav-links">
+            <a class="nav-link home-link"
+               href="https://etachali2-prog.github.io/To-home/">
+                HOME
+            </a>
+
+            <a class="nav-link forms-link"
+               href="https://etachali2-prog.github.io/all/">
+                FORMS ↗
+            </a>
+        </nav>
+
+    </header>
+
+    <!-- Welcome section -->
+    <main class="hero">
+
+        <div class="tagline">
+            TECHNICAL DEPARTMENT
+        </div>
+
+        <h1>
+            Maintenance &<br>
+            <span>Engineering Solutions</span>
+        </h1>
+
+        <p>
+            Welcome to the MELBA Technical Department.
+            Access maintenance forms, technical documents,
+            and essential resources to support reliable
+            machinery and efficient production.
+        </p>
+
+        <!-- Quick access cards -->
+        <div class="cards">
+
+            <a class="card"
+               href="https://etachali2-prog.github.io/To-home/">
+
+                <span class="icon">⌂</span>
+
+                <h2>Home</h2>
+
+                <p>
+                    Return to the main page and explore
+                    technical department resources.
+                </p>
+
+            </a>
+
+            <a class="card"
+               href="https://etachali2-prog.github.io/all/">
+
+                <span class="icon">▤</span>
+
+                <h2>Maintenance Forms</h2>
+
+                <p>
+                    Access preventive maintenance forms,
+                    inspection sheets, and technical reports.
+                </p>
+
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 <span>MELBA PRINTING PUBLISHING & PACKAGING S.C.</span>
+        | Technical Department
+    </footer>
 
 </body>
 </html>
+```
